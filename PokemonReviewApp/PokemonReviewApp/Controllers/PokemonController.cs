@@ -48,7 +48,7 @@ namespace PokemonReviewApp.Controllers
                 return BadRequest(ModelState);
             }
 
-            return Ok(_pokemonRepository.GetPokemon(pokeId));
+            return Ok(_mapper.Map<PokemonDto>(_pokemonRepository.GetPokemon(pokeId)));
         }
 
         
