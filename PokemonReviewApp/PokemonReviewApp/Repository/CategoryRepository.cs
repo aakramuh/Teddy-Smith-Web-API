@@ -14,7 +14,7 @@ namespace PokemonReviewApp.Repository
             _context = context;
         }
 
-        
+
 
         public bool CategoryExists(int categoryId)
         {
@@ -33,7 +33,17 @@ namespace PokemonReviewApp.Repository
 
         public ICollection<Pokemon> GetPokemonsByCategory(int categoryId)
         {
-           return  _context.PokemonCategories.Where(c => c.CategoryId == categoryId).Select(pc => pc.Pokemon).ToList();        
+            return _context.PokemonCategories.Where(c => c.CategoryId == categoryId).Select(pc => pc.Pokemon).ToList();
+        }
+        public bool CreateCategory(Category category)
+        {
+            _context.Add(category);
+            return Save();
+        }
+        public bool Save()
+        {
+            var saveStatus = _context.SaveChanges();
+            return saveStatus > 0 ? true : false;
         }
     }
 }

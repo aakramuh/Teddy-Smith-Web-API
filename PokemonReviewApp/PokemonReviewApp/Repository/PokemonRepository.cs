@@ -14,7 +14,11 @@ namespace PokemonReviewApp.Repository
         }
         public Pokemon GetPokemon(int id)
         {
-           return _context.Pokemon.Where(p => p.Id == id).FirstOrDefault();
+            if (PokemonExists(id))
+
+                return _context.Pokemon.Where(p => p.Id == id).FirstOrDefault();
+            else
+                return null;
         }
 
         public Pokemon GetPokemon(string name)
