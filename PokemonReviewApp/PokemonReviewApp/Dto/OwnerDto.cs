@@ -9,6 +9,5 @@ namespace PokemonReviewApp.Dto
         public string LastName { get; set; }
         public string Gym { get; set; }
 
-        public CountryDto Country { get; set; } 
     }
 }
