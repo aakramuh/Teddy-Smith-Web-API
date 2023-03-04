@@ -56,5 +56,13 @@ namespace PokemonReviewApp.Controllers
 
             return Ok(review);
         }
+
+        [HttpPost]
+        [ProducesResponseType(204)]
+        [ProducesResponseType(400)]
+        public IActionResult CreateReview([FromQuery] int pokeId, [FromQuery] int reviewerId, [FromBody] ReviewDto reviewCreate)
+        {
+
+        }
     }
 }
